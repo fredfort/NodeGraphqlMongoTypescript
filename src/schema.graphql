@@ -1,0 +1,20 @@
+type Person {
+  id: Int!
+  name: String
+  gender: String
+  homeworld: String
+  friends: [Int]
+  address: Address
+}
+
+type Address{
+  city: String
+  country: String
+  street: String
+  number: Int
+}
+
+type Query {
+  allPeople: [Person]
+  person(id: Int!): Person
+}
