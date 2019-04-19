@@ -1,20 +1,31 @@
-type Person {
-  id: Int!
-  name: String
-  gender: String
-  homeworld: String
-  friends: [Int]
-  address: Address
+type Person @entity {
+  id: String! @id
+  name: String! @column
+  gender: String @column
+  homeworld: String @column
+  friends: [Person] @link
+  address: Address @embedded
 }
 
-type Address{
-  city: String
-  country: String
-  street: String
-  number: Int
+type Address @entity{
+  city: String  @column
+  country: String @column
+  street: String  @column
+  street_number: Int  @column
 }
 
 type Query {
   allPeople: [Person]
-  person(id: Int!): Person
+  person(id: String!): Person
+}
+
+type Mutation {
+  addPeople(
+    name: String!, 
+    gender: String, 
+    homeworld: String,
+    city: String,
+    country: String,
+    street: String,
+    street_number: Int): Person
 }

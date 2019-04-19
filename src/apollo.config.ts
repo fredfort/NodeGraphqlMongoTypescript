@@ -10,6 +10,6 @@ export const apolloConfig: Config = {
       'editor.fontSize': 14,
       'editor.fontFamily': 'Arial',
       'request.credentials': '',
-    }
+    },
   },
 };

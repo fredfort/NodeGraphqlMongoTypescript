@@ -1,14 +1,16 @@
-import { Address } from './address.resolver';
+import { Address } from '../address/address.resolver';
 import { Query } from './query.resolver';
-import { Person } from './person.resolver';
-import { IResolvers, IAddress } from 'types/types';
+import { Mutation } from './mutation.resolver';
+import { Person } from '../person/person.resolver';
+import { IResolvers, IAddress } from 'types';
 
 export type Context = any;
 export type Root = any;
-export type IAddressWithPersonId = IAddress & {id: number }
+export type IAddressWithPersonId = IAddress & { id: string };
 
-const resolvers: IResolvers<Context> | any  = {
+const resolvers: IResolvers<Context> | any = {
   Query,
+  Mutation,
   Person,
   Address,
 };
